@@ -1,0 +1,2 @@
+{% macro show_input_hidden_security_token(session_id) %}
+<input type="hidden" name="{{ security_token_name }}" value="{{ session_id }}">{% endmacro %}

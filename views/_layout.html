@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+<meta name="format-detection" content="telephone=no">
+<title>{% block title %}サイト名{% endblock %}</title>
+<link rel="stylesheet" href="{{ app.static_files['/css/common.css'] }}">
+</head>
+<body>
+{% block content_header %}{% endblock %}
+{% block content_body %}{% endblock %}
+{% block content_end %}{% endblock %}
+</body>
+</html>

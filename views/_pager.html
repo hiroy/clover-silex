@@ -1,0 +1,19 @@
+{% if pager is defined and pager.hasPager == true %}
+<div class="pager">
+<ul>
+{% if pager.getPreviousUrl != null %}
+<li class="previous"><a href="{{ pager.getPreviousUrl }}">前へ</a></li>
+{% endif %}
+{% for pagerUrl in pager.getPagerUrls %}
+{% if pagerUrl.url == null %}
+<li class="current">{{ pagerUrl.page }}</li>                                                                                                                     
+{% else %}
+<li><a href="{{ pagerUrl.url }}">{{ pagerUrl.page }}</a></li>
+{% endif %}
+{% endfor %}
+{% if pager.getNextUrl != null %}
+<li class="next"><a href="{{ pager.getNextUrl }}">次へ</a></li>
+{% endif %}
+</ul>
+</div>
+{% endif %}
