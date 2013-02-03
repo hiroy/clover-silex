@@ -40,5 +40,5 @@ asset_cache_buster do |http_path, real_path|
 end
 
 on_stylesheet_saved do |filename|
-  `php bin/create_static_files.php`
+  `php cli/create_static_files.php`
 end
