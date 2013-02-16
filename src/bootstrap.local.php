@@ -2,7 +2,7 @@
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler;
 
-$app = new Clover\Application();
+$app = new Clover\Silex\Application();
 
 $app['debug'] = true;
 $app['env'] = 'local';
@@ -61,13 +61,13 @@ $app->register(new Kud\Silex\Provider\TmhOAuthServiceProvider());
 */
 
 $app['message'] = $app->share(function() use ($app) {
-    return new Clover\Service\Message($app);
+    return new Clover\Silex\Service\Message($app);
 });
 $app['errors'] = $app->share(function() use ($app) {
-    return new Clover\Service\Errors($app);
+    return new Clover\Silex\Service\Errors($app);
 });
 $app['security_token_validator'] = function() {
-    return new Clover\Service\SecurityTokenValidator();
+    return new Clover\Silex\Service\SecurityTokenValidator();
 };
 
 return $app;

@@ -1,5 +1,5 @@
 <?php
-namespace Clover\Service;
+namespace Clover\Silex\Service;
 
 use Silex\Application;
 

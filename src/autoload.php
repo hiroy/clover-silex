@@ -1,6 +1,6 @@
 <?php
 spl_autoload_register(function($className) {
-    if (strpos($className, 'Clover') !== 0) {
+    if (strpos($className, 'Example') !== 0) {
         return;
     }
     $className = ltrim($className, '\\');

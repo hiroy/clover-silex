@@ -1,5 +1,5 @@
 <?php
-namespace Clover;
+namespace Clover\Util;
 
 class UniqueHash
 {

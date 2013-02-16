@@ -1,5 +1,5 @@
 <?php
-namespace Clover;
+namespace Clover\Silex\Util;
 
 use Symfony\Component\HttpFoundation\Request;
 

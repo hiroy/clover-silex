@@ -1,5 +1,18 @@
 {
+  "name": "clover/silex",
+  "type": "library",
+  "description": "Supporting classes/files for using Silex",
+  "keywords": ["silex"],
+  "homepage": "https://github.com/hiroy/clover-silex",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Hiroyuki Yamaoka",
+      "email": "yamaoka@428lab.jp"
+    }
+  ],
   "require": {
+    "php": ">=5.3.3",
     "silex/silex": "1.0.*-dev",
     "twig/twig": ">=1.8.0,<2.0-dev",
     "doctrine/dbal": "2.2.*",
@@ -8,5 +21,15 @@
   },
   "require-dev": {
     "phpunit/phpunit": "3.7.*"
+  },
+  "autoload": {
+    "psr-0": {
+      "Clover": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
   }
 }

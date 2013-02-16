@@ -48,11 +48,11 @@ $app->before(function() use ($app) {
     $app['twig']->addGlobal('message', $app['message']->get());
 
     $app['twig']->addGlobal('security_token_name',
-        Clover\Service\SecurityTokenValidator::SECURITY_TOKEN_ITEM_NAME);
+        Clover\Silex\Service\SecurityTokenValidator::SECURITY_TOKEN_ITEM_NAME);
 });
 
 /* Sample
-$app->mount('/',      new Example\ControllerProvider\DefaultControllerProvider());
+$app->mount('/', new Example\ControllerProvider\DefaultControllerProvider());
 */
 
 return $app;

@@ -1,5 +1,5 @@
 <?php
-namespace Clover;
+namespace Clover\Silex;
 
 class Application extends \Silex\Application
 {

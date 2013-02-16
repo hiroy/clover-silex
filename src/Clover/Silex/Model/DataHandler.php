@@ -1,5 +1,5 @@
 <?php
-namespace Clover\Model;
+namespace Clover\Silex\Model;
 
 use Doctrine\DBAL\Connection;
 
