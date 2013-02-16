@@ -1,5 +1,5 @@
 <?php
-namespace Clover\Validator;
+namespace Clover\Util;
 
 class Validator
 {
