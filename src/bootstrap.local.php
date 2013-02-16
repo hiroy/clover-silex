@@ -52,6 +52,14 @@ $app->register(new Silex\Provider\TwigServiceProvider(), [
     ]
 ]);
 
+/* using Monolog for logging?
+$app->register(new Silex\Provider\MonologServiceProvider(), [
+    'monolog.logfile' => __DIR__. '/../log/development.log',
+    'monolog.level' => Monolog\Logger::INFO,
+    'monolog.name' => 'example',
+]);
+*/
+
 /* using Twitter?
 $app['tmhoauth.config'] = [
     'consumer_key' => 'your consumer key',
