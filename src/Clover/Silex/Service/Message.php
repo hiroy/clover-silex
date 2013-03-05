@@ -14,11 +14,11 @@ class Message
 
     public function add($message)
     {
-        $this->app['session']->getFlashBag()->add('message', $message);
+        $this->app['session']->getFlashBag()->add('messages', $message);
     }
 
-    public function get(array $default = [])
+    public function all(array $default = [])
     {
-        return $this->app['session']->getFlashBag()->get('message', $default);
+        return $this->app['session']->getFlashBag()->get('messages', $default);
     }
 }
