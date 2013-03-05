@@ -12,12 +12,12 @@ class Message
         $this->app = $app;
     }
 
-    public function set($message)
+    public function add($message)
     {
-        $this->app['session']->getFlashBag()->set('message', $message);
+        $this->app['session']->getFlashBag()->add('message', $message);
     }
 
-    public function get($default = null)
+    public function get(array $default = [])
     {
         return $this->app['session']->getFlashBag()->get('message', $default);
     }
