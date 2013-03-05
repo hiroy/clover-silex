@@ -3,7 +3,7 @@ namespace Clover\Silex\Service;
 
 use Silex\Application;
 
-class Message
+class Messages
 {
     private $app;
 

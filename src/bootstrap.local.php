@@ -68,8 +68,8 @@ $app['tmhoauth.config'] = [
 $app->register(new Kud\Silex\Provider\TmhOAuthServiceProvider());
 */
 
-$app['message'] = $app->share(function() use ($app) {
-    return new Clover\Silex\Service\Message($app);
+$app['messages'] = $app->share(function() use ($app) {
+    return new Clover\Silex\Service\Messages($app);
 });
 $app['errors'] = $app->share(function() use ($app) {
     return new Clover\Silex\Service\Errors($app);

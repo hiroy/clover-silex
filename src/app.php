@@ -45,7 +45,7 @@ $app->before(function() use ($app) {
         }
     }
 
-    $app['twig']->addGlobal('message', $app['message']->get());
+    $app['twig']->addGlobal('messages', $app['messages']->all());
 
     $app['twig']->addGlobal('security_token_name',
         Clover\Silex\Service\SecurityTokenValidator::SECURITY_TOKEN_ITEM_NAME);
