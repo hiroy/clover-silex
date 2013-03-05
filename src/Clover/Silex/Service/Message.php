@@ -14,11 +14,11 @@ class Message
 
     public function set($message)
     {
-        $this->app['session']->setFlash('message', $message);
+        $this->app['session']->getFlashBag()->set('message', $message);
     }
 
     public function get($default = null)
     {
-        return $this->app['session']->getFlash('message', $default);
+        return $this->app['session']->getFlashBag()->get('message', $default);
     }
 }
