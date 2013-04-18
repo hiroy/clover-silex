@@ -22,4 +22,9 @@ class Validator
     {
         return checkdate($month, $day, $year);
     }
+
+    public static function samePassword($password, $passwordConfirmation)
+    {
+        return ($password === $passwordConfirmation);
+    }
 }
