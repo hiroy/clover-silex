@@ -15,7 +15,7 @@ class Validator
 
     public static function email($value)
     {
-        return preg_match('/^[-_a-zA-Z0-9][-_\+a-zA-Z0-9\/.\?]*@[-a-zA-Z0-9.]+$/', $value);
+        return preg_match('/^[-_a-zA-Z0-9][-_\+a-zA-Z0-9\/.\?]*@[-a-zA-Z0-9.]+$/', $value) === 1;
     }
 
     public static function date($year, $month, $day)
