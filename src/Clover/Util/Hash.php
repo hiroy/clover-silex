@@ -1,6 +1,8 @@
 <?php
 namespace Clover\Util;
 
+use Clover\Util\RandomString;
+
 class Hash
 {
     public static function validateWithSalt($string, $cryptString)
@@ -29,12 +31,7 @@ class Hash
 
     private static function createMd5SaltForCrypt()
     {
-        $salt = '';
-        $saltChars = array_merge(range('A', 'Z'), range('a', 'z'), range(0, 9));
-        for ($i = 0; $i < 8; $i++) {
-            $salt .= $saltChars[array_rand($saltChars)];
-        }
-        return '$1$' . $salt . '$';
+        return '$1$' . RandomString::generate(8) . '$';
     }
 
     private static function createBrowfishSaltForCrypt($rounds = 7)
