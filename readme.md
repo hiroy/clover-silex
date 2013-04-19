@@ -1,5 +1,7 @@
 # clover/silex
 
+[![Build Status](https://travis-ci.org/hiroy/clover-silex.png?branch=master)](https://travis-ci.org/hiroy/clover-silex)
+
 Supporting classes/files for using [Silex](http://silex.sensiolabs.org/)
 
 ## Install
