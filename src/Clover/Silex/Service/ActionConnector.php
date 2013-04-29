@@ -2,6 +2,7 @@
 namespace Clover\Silex\Service;
 
 use Silex\Application;
+use Clover\Silex\Action\ActionInterface;
 
 class ActionConnector
 {
@@ -14,10 +15,10 @@ class ActionConnector
 
     public function connect($instance)
     {
-        if (!$instance instanceof Clover\Sliex\Action\ActionInterface) {
+        if (!($instance instanceof ActionInterface)) {
             throw new \Exception('This instance cannot be connected.');
         }
-        $requestMethod = $app['request']->getMethod();
+        $requestMethod = $this->app['request']->getMethod();
         switch ($requestMethod) {
             case 'GET':
                 return $instance->connectGet($this->app);
