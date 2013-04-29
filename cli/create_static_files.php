@@ -1,9 +1,11 @@
 <?php
+$webDir = __DIR__ . '/../web';
 $jsDir  = __DIR__ . '/../web/js';
 $cssDir = __DIR__ . '/../web/css';
 $imgDir = __DIR__ . '/../web/img';
 
 $staticFileHashes = [];
+$staticFileHashes = array_merge($staticFileHashes, listFileHashes($webDir));
 $staticFileHashes = array_merge($staticFileHashes, listFileHashes($jsDir));
 $staticFileHashes = array_merge($staticFileHashes, listFileHashes($cssDir));
 $staticFileHashes = array_merge($staticFileHashes, listFileHashes($imgDir));
@@ -25,7 +27,7 @@ function listFileHashes($dir)
     foreach ($it as $fileInfo) {
         if ($fileInfo->isFile()) {
             if ($fileInfo->getExtension() === 'swp'
-                || $fileInfo->getFilename() === '.DS_Store') {
+                || substr($fileInfo->getFilename(), 0, 1) === '.') {
                 continue;
             }
             $list[$fileInfo->getRealPath()] = md5_file($fileInfo->getRealPath());
