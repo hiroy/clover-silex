@@ -57,7 +57,7 @@ class MaintenanceServiceProvider implements ServiceProviderInterface
                 $app->match('/{path}', function() use ($app) {
                     $response = new Response();
                     $response->setStatusCode(503);
-                    $response->setContent($app['twig']->render($app['maintenance.twig_template']);
+                    $response->setContent($app['twig']->render($app['maintenance.twig_template']));
                     return $response;
                 })->assert('path', '.*');
             }
