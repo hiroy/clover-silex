@@ -19,6 +19,11 @@ default:
 $app['is_login'] = false;
 $app['self_user'] = null;
 
+$app->register(new Clover\Silex\ServiceProvider\MaintenanceServiceProvider([
+    'lock' => __DIR__ . '/../maintenance',
+    'html' => __DIR__ . '/../web/maintenance.html'
+]));
+
 $app->error(function(\Exception $e, $code) use ($app) {
     if ($app['debug']) {
         return;
@@ -34,10 +39,11 @@ $app->error(function(\Exception $e, $code) use ($app) {
 $app->before(function() use ($app) {
 
     $app['self_user'] = null;
+/*
     if ($app['session']->has('user_id')) {
         $userId = $app['session']->get('user_id');
         // TODO: login check
-        if (false /* login? */) {
+        if (false) { // login?
             $app['session']->invalidate();
         } else {
             $app['is_login'] = true;
@@ -49,6 +55,7 @@ $app->before(function() use ($app) {
 
     $app['twig']->addGlobal('security_token_name',
         Clover\Silex\Service\SecurityTokenValidator::SECURITY_TOKEN_ITEM_NAME);
+*/
 });
 
 /* Sample

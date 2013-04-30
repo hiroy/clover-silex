@@ -9,6 +9,7 @@ $app['env'] = 'local';
 
 $app['static_files'] = require __DIR__ . '/static_files.php';
 
+/*
 $app->register(new Silex\Provider\SessionServiceProvider());
 $app['pdo.dsn'] = 'mysql:dbname=dbname;host=127.0.0.1;charset=utf8mb4';
 $app['pdo.user'] = 'dbuser';
@@ -44,6 +45,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), [
         'charset'  => 'utf8mb4',
     ],
 ]);
+*/
 
 $app->register(new Silex\Provider\TwigServiceProvider(), [
     'twig.path' => __DIR__ . '/../views',
@@ -74,8 +76,8 @@ $app['messages'] = $app->share(function() use ($app) {
 $app['errors'] = $app->share(function() use ($app) {
     return new Clover\Silex\Service\Errors($app);
 });
-$app['security_token_validator'] = function() {
+$app['security_token_validator'] = $app->share(function() {
     return new Clover\Silex\Service\SecurityTokenValidator();
-};
+});
 
 return $app;
