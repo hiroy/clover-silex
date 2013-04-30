@@ -32,7 +32,9 @@ class MaintenanceServiceProvider implements ServiceProviderInterface
 
     public function register(Application $app)
     {
+        $app['maintenance.enabled'] = false;
         if ($this->isMaintenanceMode && !is_null($this->htmlFile)) {
+            $app['maintenance.enabled'] = true;
             $app['maintenance.html'] = file_get_contents($this->htmlFile);
             $app->match('/{path}', function() use ($app) {
                 return new Response($app['maintenance.html'], 503);

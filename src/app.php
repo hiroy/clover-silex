@@ -59,7 +59,9 @@ $app->before(function() use ($app) {
 });
 
 /* Sample
-$app->mount('/', new Example\ControllerProvider\DefaultControllerProvider());
+if (!$app['maintenance.enabled']) {
+    $app->mount('/', new Example\ControllerProvider\DefaultControllerProvider());
+}
 */
 
 return $app;
