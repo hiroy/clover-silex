@@ -44,9 +44,8 @@ class MaintenanceServiceProvider implements ServiceProviderInterface
     public function register(Application $app)
     {
         $app['maintenance.enabled'] = false;
-        if ($this->isMaintenanceMode && !is_null($this->htmlFile)) {
+        if ($this->isMaintenanceMode) {
             $app['maintenance.enabled'] = true;
-            $app['maintenance.html'] = '';
             if ($this->htmlFile) {
                 $app['maintenance.html'] = file_get_contents($this->htmlFile);
                 $app->match('/{path}', function() use ($app) {
@@ -60,10 +59,11 @@ class MaintenanceServiceProvider implements ServiceProviderInterface
                     $response->setContent($app['twig']->render($app['maintenance.twig_template']));
                     return $response;
                 })->assert('path', '.*');
+            } else {
+                $app->match('/{path}', function() use ($app) {
+                    return $app->abort(503);
+                })->assert('path', '.*');
             }
-            $app->match('/{path}', function() use ($app) {
-                return new Response($app['maintenance.html'], 503);
-            })->assert('path', '.*');
         }
     }
 
