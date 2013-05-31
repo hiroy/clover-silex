@@ -27,4 +27,9 @@ class Errors
     {
         return $this->errors;
     }
+
+    public function join()
+    {
+        return implode('', $this->errors);
+    }
 }
