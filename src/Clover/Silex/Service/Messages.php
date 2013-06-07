@@ -5,7 +5,7 @@ use Silex\Application;
 
 class Messages
 {
-    private $app;
+    protected $app;
 
     public function __construct(Application $app)
     {
