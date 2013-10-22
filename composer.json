@@ -13,7 +13,7 @@
   ],
   "require": {
     "php": ">=5.4",
-    "silex/silex": "1.1.*-dev",
+    "silex/silex": "~1.1",
     "twig/twig": ">=1.8.0,<2.0-dev",
     "doctrine/dbal": "2.2.*",
     "monolog/monolog": ">=1.0.0"
