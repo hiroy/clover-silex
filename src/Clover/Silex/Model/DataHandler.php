@@ -28,11 +28,11 @@ abstract class DataHandler
      */
     public function insert(array $data)
     {
-        if (!isset($data['created_at'])) {
+        if (!array_key_exists('created_at', $data)) {
             $now = new \DateTime('now');
             $data['created_at'] = $now->format('Y-m-d H:i:s');
         }
-        if (isset($data['updated_at'])) {
+        if (array_key_exists('updated_at', $data)) {
             unset($data['updated_at']);
         }
         return $this->conn->insert($this->getTableName(), $data);
@@ -47,16 +47,16 @@ abstract class DataHandler
      */
     public function update(array $data, array $identifier)
     {
-        if (isset($data['created_at'])) {
+        if (array_key_exists('created_at', $data)) {
             unset($data['created_at']);
         }
-        if (!isset($data['updated_at'])) {
+        if (!array_key_exists('updated_at', $data)) {
             $now = new \DateTime('now');
             $data['updated_at'] = $now->format('Y-m-d H:i:s');
         }
         return $this->conn->update($this->getTableName(), $data, $identifier);
     }
-    
+
     /**
      * Executes an SQL DELETE statement on a table.
      *
